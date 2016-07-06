@@ -1,0 +1,2 @@
+include ':app', ':SliderPreference'
+project(':SliderPreference').projectDir = new File('libs/SliderPreference')

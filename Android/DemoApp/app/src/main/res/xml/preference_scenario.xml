@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="Comandi vocali">
+        <EditTextPreference
+            android:key="Click"
+            android:title="Comandi vocali click"
+            android:summary="In aggiunta a 'click'"
+            android:defaultValue="ok premi clicca "
+            android:dialogTitle="Click" />
+        <EditTextPreference
+            android:key="Swipe"
+            android:title="Comandi vocali swipe"
+            android:summary="Ciascuna parola è seguita automaticamente da 'a destra, a sinistra, in basso, in alto'"
+            android:defaultValue="trascina "
+            android:dialogTitle="Swipe" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="PERSONALIZZAZIONE" >
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="AutoBoot"
+        android:title="Avvia mouse all'accensione" >
+    </CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="SENSORI E SENSIBILITA'" >
+        <SwitchPreference
+            android:key="@string/switch_sensore"
+            android:title="Abilita i sensori esterni" />
+    </PreferenceCategory>  .
+    <PreferenceCategory
+        android:title="Assi">
+        <ListPreference
+            android:title="Scegli l'asse per il movimento orizzontale"
+            android:key="lisOrizzontale"
+            android:defaultValue="3"
+            android:entries="@array/listArray"
+            android:entryValues="@array/listValues" />
+        <ListPreference
+            android:title="Scegli l'asse per il movimento verticale"
+            android:key="lisVerticale"
+            android:defaultValue="1"
+            android:entries="@array/listArray"
+            android:entryValues="@array/listValues" />
+    </PreferenceCategory>
+    <net.jayschwa.android.preference.SliderPreference
+        android:key="@string/sensibilità"
+        android:title="Sensibilità puntatore"
+        android:summary="@array/slider_summaries"
+        android:defaultValue="@string/slider_default"
+        android:dialogMessage="@string/slider_message" />
+</PreferenceScreen>

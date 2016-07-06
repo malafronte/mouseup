@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="demo.project.hmi.demoapp" android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".PreferencesActivity" />
+        <activity android:name=".GUI">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name=".DemoActivity"/>
+        <service android:name=".InternalCursorService">
+            <intent-filter>
+                <action android:name=".CursorService" />
+            </intent-filter>
+        </service>
+        <service android:name=".ExternalCursorService">
+            <intent-filter>
+                <action android:name=".ExternalCursorService" />
+            </intent-filter>
+        </service>
+        <service android:name=".SpeechRecognizerService" android:label="SpeechRecognizerIntent" />
+        <service android:name=".OverlayService">
+            <intent-filter>
+                <action android:name=".OverlayService" />
+            </intent-filter>
+        </service>
+        <!-- Declaring broadcast receiver for BOOT_COMPLETED event. -->
+        <receiver android:name=".OnBootReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <!-- Adding the permission -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+</manifest>
